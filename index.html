@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Minecraft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-grid" aria-hidden="true"></div>
+    <main class="game-shell">
+      <header class="top-bar">
+        <h1>Mini Minecraft</h1>
+        <p>WASD move, Space jump, Left click break, Right click place, Q cycle block.</p>
+      </header>
+
+      <section class="hud">
+        <div class="pill">Selected: <span id="selected-block">Grass</span></div>
+        <div class="pill">Blocks: <span id="block-count">0</span></div>
+        <div class="pill">Tip: Build before sunset.</div>
+      </section>
+
+      <section class="canvas-wrap">
+        <canvas id="game" width="960" height="540" aria-label="Mini Minecraft game canvas"></canvas>
+      </section>
+
+      <section class="legend">
+        <div><span class="swatch grass"></span>Grass</div>
+        <div><span class="swatch dirt"></span>Dirt</div>
+        <div><span class="swatch stone"></span>Stone</div>
+        <div><span class="swatch wood"></span>Wood</div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

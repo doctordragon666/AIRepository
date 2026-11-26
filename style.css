@@ -1,0 +1,146 @@
+:root {
+  --bg-1: #80d5ff;
+  --bg-2: #eefcd8;
+  --ink: #1d2b37;
+  --panel: rgba(255, 255, 255, 0.72);
+  --shadow: rgba(31, 41, 55, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "VT323", monospace;
+  color: var(--ink);
+  background: linear-gradient(160deg, var(--bg-1) 0%, #b4e8ff 28%, var(--bg-2) 100%);
+  overflow-x: hidden;
+}
+
+.background-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(to right, rgba(10, 52, 74, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 52, 74, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: drift 12s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(30px); }
+}
+
+.game-shell {
+  width: min(1100px, 95vw);
+  margin: 24px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.top-bar {
+  background: var(--panel);
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(17, 24, 39, 0.16);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 6px 20px var(--shadow);
+  animation: pop-in 0.7s ease;
+}
+
+.top-bar h1 {
+  margin: 0 0 8px;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(16px, 2.4vw, 26px);
+  letter-spacing: 0.5px;
+}
+
+.top-bar p {
+  margin: 0;
+  font-size: clamp(18px, 1.8vw, 24px);
+}
+
+.hud {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(17, 24, 39, 0.14);
+  border-radius: 999px;
+  padding: 6px 12px;
+  box-shadow: 0 3px 12px var(--shadow);
+  animation: pop-in 0.7s ease;
+}
+
+.canvas-wrap {
+  margin-top: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid rgba(15, 23, 42, 0.2);
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: linear-gradient(#7cc9ff 0%, #9fddff 40%, #dff3be 70%);
+}
+
+.legend {
+  margin-top: 12px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 24px;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 2px solid rgba(17, 24, 39, 0.15);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.swatch {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.grass { background: #4aa64f; }
+.dirt { background: #936037; }
+.stone { background: #7a7a7a; }
+.wood { background: #b3834d; }
+
+@keyframes pop-in {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .game-shell {
+    width: 98vw;
+    margin: 10px auto 16px;
+  }
+
+  .top-bar {
+    padding: 10px 12px;
+  }
+
+  .legend {
+    font-size: 20px;
+  }
+}
