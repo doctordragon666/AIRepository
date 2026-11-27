@@ -13,7 +13,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "VT323", monospace;
+  font-family: "Courier New", "Lucida Console", monospace;
   color: var(--ink);
   background: linear-gradient(160deg, var(--bg-1) 0%, #b4e8ff 28%, var(--bg-2) 100%);
   overflow-x: hidden;
@@ -55,7 +55,7 @@ body {
 
 .top-bar h1 {
   margin: 0 0 8px;
-  font-family: "Press Start 2P", monospace;
+  font-family: "Courier New", "Lucida Console", monospace;
   font-size: clamp(16px, 2.4vw, 26px);
   letter-spacing: 0.5px;
 }
